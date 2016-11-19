@@ -1,0 +1,33 @@
+//
+// Prefix header for all source files of the 'BlueLibrary' target in the 'BlueLibrary' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+
+#define NSLog(format, ...)     do {            \
+fprintf(stderr, "<%s : %d> %s\n",        \
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],      \
+__LINE__, __func__);                      \
+(NSLog)((format), ##__VA_ARGS__);         \
+fprintf(stderr, "------\n");\
+} while(0)
+
+#define NSLogRect(rect)  NSLog(@"%s x:%.4f, y:%.4f, width:%.4f, height:%.4f", #rect, rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)
+#define NSLogSize(size) NSLog(@"%s width:%.4f, height:%.4f", #size, size.width, size.height)
+#define NSLogPoint(point) NSLog(@"%s x:%.4f, y:%.4f", #point, point.x, point.y)
+
+
+
+
+
+
+#endif
